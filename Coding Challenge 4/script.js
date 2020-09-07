@@ -1,27 +1,27 @@
-var bills = [124,48,268];
-var allTips = [];
-var summTipsAndBills = [];
-function calcTips(payed) {
-	var tip;
-  if (payed < 50) {
-  	tip = payed * (20/100);
-    allTips.push(tip);
-    summTipsAndBills.push(tip+payed);
-    console.log(tip + " it's tip from 50$");
+var mark = {
+	name: 'Mark',
+  mass: 80,
+  height: 1.9,
+  calcBmi: function() {
+  	this.bmi = this.mass / Math.pow(this.height, 2);
   }
-  else if (payed > 50 && payed < 200){
-    tip = payed * (15/100);
-    allTips.push(tip);
-    summTipsAndBills.push(tip+payed);
-    console.log(tip + " it's tip from 50-200$");
-  }
-  else if (payed > 200){
-    tip = payed * (10/100);
-    allTips.push(tip);
-    summTipsAndBills.push(tip+payed);
-    console.log(tip + " it's tip from 200$");
-  }
-  
+};
+var john = {
+	name: 'John',
+  mass: 60,
+  height: 1.75,
+  calcBmi: function() {
+  	this.bmi = this.mass / Math.pow(this.height, 2);
+    }
+};
+mark.calcBmi();
+john.calcBmi();
+if (mark.bmi > john.bmi) {
+	console.log(mark.name + " have highest BMI " + mark.bmi + " then " +  john.name + " BMI " + john.bmi)
 }
-bills.forEach(calcTips);
-console.log(allTips,summTipsAndBills);
+else if (mark.bmi < john.bmi) {
+	console.log(john.name + " have highest BMI " + john.bmi + " then " +  mark.name + " BMI " + john.bmi)
+}
+else {
+	console.log(mark.name + " have same BMI like " + john.name);
+}
